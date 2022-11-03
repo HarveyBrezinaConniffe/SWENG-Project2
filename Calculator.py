@@ -1,41 +1,48 @@
 from collections import deque
 
-precedence = {"+": 1, "-": 1, "*": 2}
+Precedence = {'+': 1, '-': 1, '*': 2}  # dictionary to help check precedence
 
-# Converts an infix expression to a postfix expression
-def convertToPostfix(infix):
-	output = ""
-	stack = deque()
-	# Remove whitespace
-	infix = infix.replace(" ", "")
-	for char in infix:
-		if char.isdigit():
-			output += char
-		else:
-			output += " "
-			while len(stack) > 0 and precedence[char] <= precedence[stack[-1]]:
-				output = output+stack.pop()+" "
-			stack.append(char)
-	while stack:
-		output = output+" "+stack.pop()
-	return output
 
-# Evaluates a postfix expression
-def evalPostfix(postfix):
-	argumentStack = deque()
-	for symbol in postfix.split(" "):
-		if symbol == "+":
-			arg1 = argumentStack.pop()
-			arg2 = argumentStack.pop()
-			argumentStack.append(arg1+arg2)
-		elif symbol == "-":
-			arg1 = argumentStack.pop()
-			arg2 = argumentStack.pop()
-			argumentStack.append(arg2-arg1)
-		elif symbol == "*":
-			arg1 = argumentStack.pop()
-			arg2 = argumentStack.pop()
-			argumentStack.append(arg1*arg2)
-		else:
-			argumentStack.append(int(symbol))
-	return argumentStack.pop()	
+# Function that takes an infix expression and returns it in postfix form.
+def convert_postfix(infix):
+    output = ""
+    stack = deque()
+    infix = infix.replace(' ', '')
+    # remove any whitespace in input string
+    for c in infix:
+        if c.isdigit():
+            output += c
+        else:
+            output += " "
+            while len(stack) > 0 and Precedence[c] <= Precedence[stack[-1]]:
+                output = output + stack.pop() + " "
+            stack.append(c)
+    while stack:
+        output = output + " " + stack.pop()
+    return output
+
+
+# Function that takes a postfix expression and returns the result.
+def solve_postfix(postfix):
+    argument_stack = deque()
+    for symbol in postfix.split(" "):
+        if symbol == "+":
+            arg1 = argument_stack.pop()
+            arg2 = argument_stack.pop()
+            argument_stack.append(arg1 + arg2)
+        elif symbol == "-":
+            arg1 = argument_stack.pop()
+            arg2 = argument_stack.pop()
+            argument_stack.append(arg2 - arg1)
+        elif symbol == "*":
+            arg1 = argument_stack.pop()
+            arg2 = argument_stack.pop()
+            argument_stack.append(arg1 * arg2)
+        else:
+            argument_stack.append(int(symbol))
+    return argument_stack.pop()
+
+
+def calculate(eq):
+    result = solve_postfix(convert_postfix(eq))
+    return result
