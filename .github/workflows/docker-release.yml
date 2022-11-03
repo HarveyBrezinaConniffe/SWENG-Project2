@@ -1,8 +1,9 @@
 name: Docker Release
 
 on:
-  release:
-    types: [published]
+  create:
+    tags:
+      - "v*.*.*"
 
 jobs:
   build:
@@ -30,4 +31,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME/calculatorapp:${{ env.RELEASE_VERSION }} }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/calculatorapp:${{ env.RELEASE_VERSION }}
