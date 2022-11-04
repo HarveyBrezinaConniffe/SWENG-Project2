@@ -1,5 +1,6 @@
 from Calculator import convert_postfix, solve_postfix
 
+#adding more tests for power, exponent and log
 
 # Tests for convert_postfix.
 def test_convert_postfix():
