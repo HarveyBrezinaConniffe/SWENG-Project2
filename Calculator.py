@@ -102,11 +102,12 @@ def calculate(input):
 		string = evalLog(string)
 		string =  evalPostfix(convertToPostfix(string))
 		string = round(float(string), 3)
+		string = f'{str(string).rstrip("0").rstrip(".") if "." in str(string) else string}'
 		return string
 	except:
 		return "Input Error"
 	
 
 if __name__ == "__main__":
-	infix = "3+**8"
+	infix = "exp(4)"
 	print (calculate(infix))
