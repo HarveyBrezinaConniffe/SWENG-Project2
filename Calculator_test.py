@@ -4,7 +4,7 @@ from Calculator import convertToPostfix, evalPostfix, evalExp, evalLog, calculat
 
 #most recent push (5/11 by James)
 # added more tests for each function and added tests for calculate function
-# all tests pass
+# all tests pass successfully
 
 # Tests for convert_postfix.
 def test_convert_postfix():
