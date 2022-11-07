@@ -111,6 +111,3 @@ def calculate(input):
 		return "Input Error"
 	
 
-if __name__ == "__main__":
-	infix = "8/0hjh"
-	print (calculate(infix))

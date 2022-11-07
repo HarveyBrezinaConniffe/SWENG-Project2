@@ -48,6 +48,6 @@ def test_calculate():
     assert calculate("exp(4)") == "54.598"
     assert calculate("8 * 8 / 16") == "4"
     assert calculate("7 * (4 + 1) - 7 * 2") == "21"
-    assert calculate("18 + 5 / 0") == "Input Error"
+    assert calculate("18 + 5 / 0") == "cannot divide by 0"
     assert calculate("(8*2)-3^2+(5*2)") == "17"
     
