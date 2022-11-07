@@ -1,6 +1,7 @@
 from Calculator import convertToPostfix, evalPostfix, evalExp, evalLog
 
-#adding more tests for power, exponent and log
+#adding more tests for power, exponent and log using the additional
+#functions in Calculator.py
 
 # Tests for convert_postfix.
 def test_convert_postfix():
