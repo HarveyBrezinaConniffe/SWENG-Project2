@@ -101,13 +101,16 @@ def calculate(input):
 		string = evalExp(string)
 		string = evalLog(string)
 		string =  evalPostfix(convertToPostfix(string))
-		string = round(float(string), 3)
-		string = f'{str(string).rstrip("0").rstrip(".") if "." in str(string) else string}'
-		return string
+		if string == "cannot divide by 0":
+			return string
+		else:
+			string = round(float(string), 3)
+			string = f'{str(string).rstrip("0").rstrip(".") if "." in str(string) else string}'
+			return string
 	except:
 		return "Input Error"
 	
 
 if __name__ == "__main__":
-	infix = "exp(4)"
+	infix = "8/0hjh"
 	print (calculate(infix))
