@@ -108,6 +108,6 @@ def calculate(input):
 			string = f'{str(string).rstrip("0").rstrip(".") if "." in str(string) else string}'
 			return string
 	except:
-		return "Input Error"
+		return "Error"
 	
 
