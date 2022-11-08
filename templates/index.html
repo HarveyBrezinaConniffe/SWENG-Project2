@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html  lang="">
+<html lang="">
+
 <head>
   <meta charset="UTF-8">
-  <title>1st Deployment</title>
+  <title>String Calculator</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Courier+Prime' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  
+  <link href='https://fonts.googleapis.com/css?family=Courier+Prime' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
 
-<body style="background: rgb(54, 69, 79);">
- <div class="login">
-	<h1>The String Calculator</h1>
-
-     <!-- Main Input For Receiving Query to our ML -->
-
-    <form action="{{ url_for('ans')}}"method="post">
-        <label>
-            <input type="text" name="eq" placeholder="Enter your equation: " required="required" />
-        </label>
-        <button type="submit" class="btn btn-primary btn-block btn-large">Calculate</button>
+<div class="container">
+  <br>
+  <h1 class="title">String Calculator</h1>
+  <br>
+  <div class="style-input">
+    <form action="{{ url_for('ans')}}" method="post">
+      <label>
+        <input type="text" name="eq" placeholder="Enter your equation" />
+        <button type="submit"><i class="icon ion-android-arrow-forward"></i></button>
+      </label>
     </form>
+  </div>
+  <br>
+  <br>
+  <h2 style="font-size: 2rem; color: #FFFFFF">{{answer}}</h2>
+</div>
 
-   <br>
-   <br>
-   {{ answer }}
-
- </div>
-</body>
 </html>

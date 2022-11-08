@@ -44,7 +44,7 @@ def test_eval_log():
 
 def test_calculate():
     assert calculate("3+5*exp(4.2)/(5+7)") == "30.786"
-    assert calculate("3+**8") == "Input Error"
+    assert calculate("3+**8") == "Error"
     assert calculate("exp(4)") == "54.598"
     assert calculate("8 * 8 / 16") == "4"
     assert calculate("7 * (4 + 1) - 7 * 2") == "21"
